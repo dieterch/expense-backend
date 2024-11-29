@@ -16,7 +16,8 @@ export default defineEventHandler(async (event) => {
       "tripexpenses.ts, body:",
       body,
       ", method:",
-      event.node.req.method
+      event.node.req.method,
+      body.id
     );
 
     if (event.node.req.method === "POST") {
