@@ -17,7 +17,6 @@ export default defineEventHandler(async (event) => {
       body,
       ", method:",
       event.node.req.method,
-      body.id
     );
 
     if (event.node.req.method === "POST") {

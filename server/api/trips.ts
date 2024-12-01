@@ -34,12 +34,16 @@ export default defineEventHandler(async (event) => {
     }
 
     const body = await readBody(event); // Verwende readBody statt useBody
-    console.log("trips.ts, body:", body, ", method:", event.node.req.method);
+    console.log("trips.ts, body:", JSON.stringify(body,null,2), ", method:", event.node.req.method);
 
     if (event.node.req.method === "POST") {
-      return await prisma.trip.create({
-        data: body,
-      });
+      try {
+          return await prisma.trip.create({
+          data: body,
+        });
+      } catch (error) {
+        console.log('trips.ts POST error:', error )
+      }
     }
 
     interface UserInput {
