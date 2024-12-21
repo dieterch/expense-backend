@@ -2,13 +2,7 @@ import { verifyToken } from "../utils/jwt";
 import { compareSync } from "bcrypt"; // for backend
 
 export const doPreChecks = async (event, api: String) => {
-  // appendCorsHeaders(event, {
-  //   origin: "*",
-  //   preflight: {
-  //     statusCode: 204,
-  //   },
-  //   methods: "*",
-  // });
+
 
   try {
     const didHandleCors = handleCors(event, {
